@@ -3,10 +3,7 @@ package az.ingress.demo;
 
 import az.ingress.demo.model.*;
 //import az.ingress.demo.repository.BalanceRepository;
-import az.ingress.demo.repository.EmailRepository;
-import az.ingress.demo.repository.PhoneRepository;
-import az.ingress.demo.repository.RoleRepository;
-import az.ingress.demo.repository.EmployeeRepository;
+import az.ingress.demo.repository.*;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -25,7 +22,7 @@ public class DemoApplication implements CommandLineRunner {
 	private final PhoneRepository phoneRepository;
 	private final EmailRepository emailRepository;
 
-//	private final BalanceRepository balanceRepository;
+	private final SalaryRepository salaryRepository;
 	private final RoleRepository roleRepository;
 
 	public static void main(String[] args) {
@@ -76,11 +73,23 @@ public class DemoApplication implements CommandLineRunner {
 		Role userRole  = roleRepository.findByRole("user").get();
 		Role adminRole = roleRepository.findByRole("admin").get();
 
+		Salary salary1 = Salary.builder()
+				.amount(1500L)
+				.build();
+
+		Salary salary2 = Salary.builder()
+				.amount(2000L)
+				.build();
+
+		salaryRepository.save(salary1);
+		salaryRepository.save(salary2);
+
 		Employee employee = Employee.builder()
 				.name("Ali")
 				.gender(Gender.MALE)
 				.roles(List.of(userRole, adminRole))
 				.age(25)
+				.salary(salary1)
 				.lastname("Hasanov")
 				.build();
 		employeeRepository.save(employee);
@@ -90,6 +99,7 @@ public class DemoApplication implements CommandLineRunner {
 				.gender(Gender.MALE)
 				.roles(List.of(userRole))
 				.age(20)
+				.salary(salary2)
 				.lastname("Hasanov")
 				.build();
 		employeeRepository.save(employee1);

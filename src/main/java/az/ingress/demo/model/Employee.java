@@ -35,12 +35,15 @@ public class Employee {
     List<Email> emailList;
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "user_authorities",
             joinColumns = {@JoinColumn(name = "employee_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
     )
     List<Role> roles;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Salary salary;
 
 }

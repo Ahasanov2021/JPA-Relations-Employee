@@ -15,7 +15,7 @@ public class Phone {
 
     String number;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "employee_id")
     @ToString.Exclude
     Employee employee;
