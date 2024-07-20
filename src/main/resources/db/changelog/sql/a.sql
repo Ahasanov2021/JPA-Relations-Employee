@@ -1,0 +1,1 @@
+insert into employee (name, lastname, age, phone, balance) values ('Namiq','Mammadov', 13, '5656569989', 0)
