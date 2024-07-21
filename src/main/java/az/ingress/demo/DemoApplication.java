@@ -33,82 +33,82 @@ public class DemoApplication implements CommandLineRunner {
 	@Transactional
 	public void run(String... args) throws Exception {
 
-
-		Phone phone1 = Phone.builder()
-				.number("9942455454454")
-				.build();
-		phoneRepository.save(phone1);
-
-		Phone phone2 = Phone.builder()
-				.number("9948454986683")
-				.build();
-		phoneRepository.save(phone2);
-
-		Phone phone3 = Phone.builder()
-				.number("99445487979975")
-				.build();
-		phoneRepository.save(phone3);
-
-		Email email1 = Email.builder()
-				.email("ali@gmail.com")
-				.build();
-		emailRepository.save(email1);
-
-		Email email2 = Email.builder()
-				.email("hasan@gmail.com")
-				.build();
-		emailRepository.save(email2);
-
-		Role user = Role.builder()
-				.role("user")
-				.build();
-
-		Role admin = Role.builder()
-				.role("admin")
-				.build();
-
-		roleRepository.save(user);
-		roleRepository.save(admin);
-
-		Role userRole  = roleRepository.findByRole("user").get();
-		Role adminRole = roleRepository.findByRole("admin").get();
-
-		Salary salary1 = Salary.builder()
-				.amount(1500L)
-				.build();
-
-		Salary salary2 = Salary.builder()
-				.amount(2000L)
-				.build();
-
-		salaryRepository.save(salary1);
-		salaryRepository.save(salary2);
-
-		Employee employee = Employee.builder()
-				.name("Ali")
-				.gender(Gender.MALE)
-				.roles(List.of(userRole, adminRole))
-				.age(25)
-				.salary(salary1)
-				.lastname("Hasanov")
-				.build();
-		employeeRepository.save(employee);
-
-		Employee employee1 = Employee.builder()
-				.name("Hasan")
-				.gender(Gender.MALE)
-				.roles(List.of(userRole))
-				.age(20)
-				.salary(salary2)
-				.lastname("Hasanov")
-				.build();
-		employeeRepository.save(employee1);
-
-		phone1.setEmployee(employee);
-		phone2.setEmployee(employee);
-		phone3.setEmployee(employee1);
-		email1.setEmployee(employee);
-		email2.setEmployee(employee1);
+//
+//		Phone phone1 = Phone.builder()
+//				.number("9942455454454")
+//				.build();
+//		phoneRepository.save(phone1);
+//
+//		Phone phone2 = Phone.builder()
+//				.number("9948454986683")
+//				.build();
+//		phoneRepository.save(phone2);
+//
+//		Phone phone3 = Phone.builder()
+//				.number("99445487979975")
+//				.build();
+//		phoneRepository.save(phone3);
+//
+//		Email email1 = Email.builder()
+//				.email("ali@gmail.com")
+//				.build();
+//		emailRepository.save(email1);
+//
+//		Email email2 = Email.builder()
+//				.email("hasan@gmail.com")
+//				.build();
+//		emailRepository.save(email2);
+//
+//		Role user = Role.builder()
+//				.role("user")
+//				.build();
+//
+//		Role admin = Role.builder()
+//				.role("admin")
+//				.build();
+//
+//		roleRepository.save(user);
+//		roleRepository.save(admin);
+//
+//		Role userRole  = roleRepository.findByRole("user").get();
+//		Role adminRole = roleRepository.findByRole("admin").get();
+//
+//		Salary salary1 = Salary.builder()
+//				.amount(1500L)
+//				.build();
+//
+//		Salary salary2 = Salary.builder()
+//				.amount(2000L)
+//				.build();
+//
+//		salaryRepository.save(salary1);
+//		salaryRepository.save(salary2);
+//
+//		Employee employee = Employee.builder()
+//				.name("Ali")
+//				.gender(Gender.MALE)
+//				.roles(List.of(userRole, adminRole))
+//				.age(25)
+//				.salary(salary1)
+//				.lastname("Hasanov")
+//				.build();
+//		employeeRepository.save(employee);
+//
+//		Employee employee1 = Employee.builder()
+//				.name("Hasan")
+//				.gender(Gender.MALE)
+//				.roles(List.of(userRole))
+//				.age(20)
+//				.salary(salary2)
+//				.lastname("Hasanov")
+//				.build();
+//		employeeRepository.save(employee1);
+//
+//		phone1.setEmployee(employee);
+//		phone2.setEmployee(employee);
+//		phone3.setEmployee(employee1);
+//		email1.setEmployee(employee);
+//		email2.setEmployee(employee1);
 //
 //		phoneRepository.saveAll(List.of(phone1, phone2, phone3));
 //		emailRepository.saveAll(List.of(email1, email2));

@@ -1,11 +1,10 @@
 package az.ingress.demo.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -13,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Employee {
 
     @Id
@@ -44,6 +44,6 @@ public class Employee {
     List<Role> roles;
 
     @OneToOne(cascade = CascadeType.ALL)
-    private Salary salary;
+    Salary salary;
 
 }
